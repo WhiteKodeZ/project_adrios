@@ -9,7 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name') }}  | {{$title ?? 'Welcome'}}</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
@@ -40,7 +40,7 @@
 
         <!-- main header -->
         <header class="main-header header-style-one">
-            <div class="header-lower">
+            <div class="header-low">
 
                 <div class="outer-box">
                     <div class="menu-area">
@@ -55,23 +55,32 @@
                                 <ul class="navigation clearfix">
                                     <li>
                                         <div class="logo-box">
-                                            <figure class="logo"><a href="index.html"><img src="/assets/img/logo.png"
+                                    <figure class="logo"><a href="#"><img src="assets/img/logo.png"
                                                         style="height: 20px;" alt=""></a></figure>
                                         </div>
                                     </li>
-                                    <li class="current"><a href="about.html">About Us</a></li>
+                                    <li class="current"><a href="{{route('aboutUs.view')}}">About Us</a></li>
 
-                                    <li><a href="#">Services</a>
+                                     <li class="dropdown"><a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="{{route('servicesI.view')}}">Services I</a></li>
+                                            <li><a href="{{route('servicesII.view')}}">Services II</a></li>
+                                            <li><a href="{{route('servicesIII.view')}}">Services III</a></li>
+                                        </ul>
                                     </li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{route('pricing.view')}}">Pricing</a></li>
+                                    <li><a href="{{route('faq.view')}}">FAQs</a></li>
+                                    <li><a href="{{route('contactUs.view')}}">Contact Us</a></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div class="menu-right-content">
                         <a href="">
-                            <p>Sign Up</p>
+                            <button class="btn-box btn-one slider-btn" type="button"
+                                style="background:#F5F5F6; color: #1C1E44; font-size: 18px; font-family: Sora; font-weight: 700; word-wrap: break-word">Sign
+                                Up</button>
+
                         </a>
                     </div>
                 </div>
@@ -87,7 +96,9 @@
                     </div>
                     <div class="menu-right-content">
                         <a href="">
-                            <p>Sign Up</p>
+                            <button class="btn-box btn-one slider-btn"
+                                style="color: #1C1E44; font-size: 18px; font-family: Sora; font-weight: 700; word-wrap: break-word">Sign
+                                Up</button>
                         </a>
                     </div>
                 </div>
@@ -101,26 +112,18 @@
             <div class="close-btn"><i class="fas fa-times"></i></div>
 
             <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="/assets/img/logo.png" style="height: 20px;" alt=""
+                <div class="nav-logo"><a href="#"><img src="/assets/img/logo-white.svg" style="height: 20px;" alt=""
                             title=""></a>
                 </div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                 </div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Chicago 12, Melborne City, USA</li>
-                        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                        <li><a href="mailto:info@example.com">info@example.com</a></li>
-                    </ul>
-                </div>
                 <div class="social-links">
                     <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                     </ul>
                 </div>
             </nav>
@@ -141,10 +144,10 @@
                                     </div>
                                     <div class="widget-content">
                                         <!-- <ul class="social-links clearfix">
-                                            <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                         </ul> -->
                                     </div>
                                 </div>
@@ -156,7 +159,7 @@
                                     </div>
                                     <div class="widget-content">
                                         <ul class="links-list clearfix">
-                                            <li><a href="index.html">About Us</a></li>
+                                            <li><a href="#">About Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -168,9 +171,9 @@
                                     </div>
                                     <div class="widget-content">
                                         <ul class="links-list clearfix">
-                                            <li><a href="index.html">Book A Pickup</a></li>
-                                            <li><a href="index.html">Basic Registration</a></li>
-                                            <li><a href="index.html">Find A Home</a></li>
+                                            <li><a href="#">Book A Pickup</a></li>
+                                            <li><a href="#">Basic Registration</a></li>
+                                            <li><a href="#">Find A Home</a></li>
 
                                         </ul>
                                     </div>
@@ -183,8 +186,8 @@
                                     </div>
                                     <div class="widget-content">
                                         <ul class="links-list clearfix">
-                                            <li><a href="index.html">Email Us</a></li>
-                                            <li><a href="index.html">Contact Us</a></li>
+                                            <li><a href="#">Email Us</a></li>
+                                            <li><a href="#">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -198,10 +201,10 @@
                                     </div>
                                     <div class="widget-content">
                                         <ul class="social-links clearfix">
-                                            <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
-                                            <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -213,12 +216,6 @@
                 <!-- </div> -->
         </footer>
         <!-- main-footer end -->
-
-
-        <!-- scroll to top -->
-        <button class="scroll-top scroll-to-target" data-target="html">
-            <i class="fal fa-long-arrow-up"></i>
-        </button>
     </div>
 
 
